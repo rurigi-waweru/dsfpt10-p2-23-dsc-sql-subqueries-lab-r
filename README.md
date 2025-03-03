@@ -38,8 +38,7 @@ SELECT
 FROM customers
 JOIN orders 
     USING(customerNumber)
-WHERE orderDate = '2003-01-31'
-;
+WHERE orderDate = '2003-01-31';
 ```
 
 ```python
