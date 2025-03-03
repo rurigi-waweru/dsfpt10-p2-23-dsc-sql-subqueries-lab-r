@@ -18,16 +18,19 @@ Once again, here's the schema for the CRM database you'll continue to practice w
 ## Connect to the Database
 
 As usual, start by importing the necessary packages and connecting to the database `data.sqlite`.
+
+```python
 # Your code here; import the necessary packages
 import pandas as pd 
 import sqlite3
 # Your code here; create the connection
 conn = sqlite3.connect('data.sqlite')
 ## Write an Equivalent Query using a Subquery
+```
 
 The following query works using a `JOIN`. Rewrite it so that it uses a subquery instead.
 
-```
+``` python
 SELECT
     customerNumber,
     contactLastName,
@@ -38,6 +41,7 @@ JOIN orders
 WHERE orderDate = '2003-01-31'
 ;
 ```
+
 # brian-answer
 # -----------------------------------------------------------------
     # q = """
