@@ -42,6 +42,7 @@ WHERE orderDate = '2003-01-31'
 ;
 ```
 
+```python
 # brian-answer
 # -----------------------------------------------------------------
     # q = """
@@ -63,8 +64,10 @@ WHERE customerNumber IN
 # -----------------------------------------------------------------
 pd.read_sql(q, conn)
 ## Select the `Total Number` of Orders for Each `Product Name`
-
+```
 Sort the results by the total number of items sold for that product.
+
+```python
 # brian-answer
 q = """
     SELECT
@@ -82,12 +85,15 @@ q = """
 """
 pd.read_sql(q, conn)
 ## Select the `Product Name` and the `Total Number` of People Who Have Ordered Each Product
+```
 
 Sort the results in descending order.
 ### A quick note on the SQL  `SELECT DISTINCT` statement:
 The `SELECT DISTINCT` statement is used to return only distinct values in the specified column. In other words, it removes the duplicate values in the column from the result set.
 
 Inside a table, a column often contains many duplicate values; and sometimes you only want to list the unique values. If you apply the `DISTINCT` clause to a column that has `NULL`, the `DISTINCT` clause will keep only one NULL and eliminates the other. In other words, the DISTINCT clause treats all `NULL` “values” as the same value.
+
+```python
 # Your code here
 # Hint: because one of the tables we'll be joining has duplicate customer numbers, you should use DISTINCT
 q = """
@@ -106,8 +112,11 @@ q = """
 """
 pd.read_sql(q, conn)
 ## Select the `Employee Number`, `First Name`, `Last Name`, `City (of the office)`, and `Office Code` of the `Employees` Who Sold Products That Have Been Ordered by Fewer Than 20 people.
+```
 
 This problem is a bit tougher. To start, think about how you might break the problem up. Be sure that your results only list each employee once.
+
+```python
 # brian-added
 q = """
     SELECT
@@ -137,7 +146,11 @@ q = """
         HAVING COUNT(DISTINCT customerNumber) < 20);
 """
 pd.read_sql(q, conn)
+```
+
 ## Select the Employee Number, First Name, Last Name, and Number of Customers for Employees Whose Customers Have an Average Credit Limit Over 15K
+
+```python
 # brian-added
 q = """
     SELECT
@@ -155,8 +168,14 @@ q = """
         AVG(creditLimit) > 15000;
 """
 pd.read_sql(q, conn)
+```
+
 ## Finally, `close` the connection.
+
+```python
 conn.close()
+```
+
 ## Summary
 
 In this lesson, you got to practice some more complex SQL queries, some of which required subqueries. There's still plenty more SQL to be had though; hope you've been enjoying some of these puzzles!
